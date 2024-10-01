@@ -38,7 +38,84 @@ You will need to be authenticated with Cocoon to do this.
 
 Cocoon has several components:
 
-* A server, which coordinates everything. This is a Dart App Engine
+* Ana içeriğe geç
+GitHub Belgeleri
+REST API'si /REST API Hakkında /API Sürümleri
+API Sürümleri
+REST API'ye istekte bulunduğunuzda hangi REST API sürümünün kullanılacağını nasıl belirleyeceğinizi öğrenin.
+
+Bu makalede
+API sürümleme hakkında
+Bir API sürümünün belirtilmesi
+Yeni bir API sürümüne yükseltme
+Desteklenen API sürümleri
+API sürümleme hakkında
+GitHub Enterprise Cloud REST API'si sürümlendirilmiştir. API sürüm adı, API sürümünün yayınlandığı tarihe dayanmaktadır. Örneğin, API sürümü 2022-11-28Pazartesi, 28 Kasım 2022'de yayınlanmıştır.
+
+Herhangi bir bozucu değişiklik yeni bir API sürümünde yayınlanacaktır. Bozucu değişiklikler, bir entegrasyonu potansiyel olarak bozabilecek değişikliklerdir. Bozucu değişiklikler şunları içerir:
+
+tüm bir işlemin kaldırılması
+bir parametrenin kaldırılması veya yeniden adlandırılması
+bir yanıt alanını kaldırma veya yeniden adlandırma
+yeni bir gerekli parametre ekleniyor
+daha önce isteğe bağlı bir parametreyi zorunlu hale getirmek
+bir parametrenin veya yanıt alanının türünü değiştirme
+enum değerlerini kaldırma
+mevcut bir parametreye yeni bir doğrulama kuralı ekleme
+kimlik doğrulama veya yetkilendirme gerekliliklerini değiştirme
+Herhangi bir ek (kesintisiz) değişiklik, desteklenen tüm API sürümlerinde kullanılabilir olacaktır. Ek değişiklikler, bir entegrasyonu bozmaması gereken değişikliklerdir. Ek değişiklikler şunları içerir:
+
+bir işlem ekleme
+isteğe bağlı bir parametre ekleme
+isteğe bağlı bir istek başlığı ekleniyor
+bir yanıt alanı ekleme
+bir yanıt başlığı ekleme
+enum değerleri ekleme
+Yeni bir REST API sürümü yayınlandığında, yeni API sürümünün yayınlanmasını takip eden en az 24 ay boyunca önceki API sürümü desteklenecektir.
+
+Bir API sürümünün belirtilmesi
+API sürümünü belirtmek için başlığı kullanmalısınız X-GitHub-Api-Version. Örneğin:
+
+curl --header "X-GitHub-Api-Version:2022-11-28" https://api.github.com/zen
+Başlığı olmayan istekler X-GitHub-Api-Versionvarsayılan olarak sürümü kullanacaktır 2022-11-28.
+
+Artık desteklenmeyen bir API sürümü belirtirseniz bir 400hata alırsınız.
+
+Yeni bir API sürümüne yükseltme
+Yeni bir REST API sürümüne yükseltme yapmadan önce, hangi bozucu değişikliklerin dahil edildiğini anlamak ve söz konusu belirli API sürümüne nasıl yükselteceğiniz hakkında daha fazla bilgi edinmek için yeni API sürümü için bozucu değişikliklerin değişiklik günlüğünü okumalısınız. Daha fazla bilgi için " Bozucu değişiklikler " bölümüne bakın.
+
+Entegrasyonunuzu güncelleyip başlıkta yeni API sürümünü belirttiğinizde X-GitHub-Api-Version, entegrasyonunuzun yeni API sürümüyle çalışması için gereken değişiklikleri de yapmanız gerekecektir.
+
+Entegrasyonunuz güncellendikten sonra, entegrasyonunuzun yeni API sürümüyle çalıştığını doğrulamak için test edin.
+
+Desteklenen API sürümleri
+Şu anda aşağıdaki REST API sürümleri desteklenmektedir:
+
+2022-11-28
+
+Ayrıca desteklenen tüm API sürümlerini almak için bir API isteğinde bulunabilirsiniz. Daha fazla bilgi için " Meta veriler için REST API uç noktaları " konusuna bakın.
+
+Yardım ve destek
+Aradığınızı buldunuz mu?
+
+Gizlilik Politikası
+Bu dokümanları harika hale getirmemize yardımcı olun!
+Tüm GitHub belgeleri açık kaynaklıdır. Yanlış veya belirsiz bir şey mi gördünüz? Bir çekme isteği gönderin.
+
+Nasıl katkıda bulunacağınızı öğrenin
+
+Hala yardıma mı ihtiyacınız var?
+GitHub topluluğuna sorun
+Destek ekibiyle iletişime geçin
+Yasal
+© 2024 GitHub, Inc.
+Şartlar
+Mahremiyet
+Durum
+Fiyatlandırma
+Uzman hizmetler
+Blog
+API Sürümleri - GitHub Enterprise Cloud Belgeleri A server, which coordinates everything. This is a Dart App Engine
   application. If you have never used that before, you may want to
   [peruse the samples for Dart App
   Engine](https://github.com/dart-lang/appengine_samples). The server
