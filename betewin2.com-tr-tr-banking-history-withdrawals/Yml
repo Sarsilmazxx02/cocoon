@@ -1,0 +1,111 @@
+```php
+79796f7769c507c7c2f6dd6e9c9adf97565ac2f4 Pazartesi 17 Eylül 00:00:00 2001
+Gönderen: Sarsılmazxx02 <Recocankaya@gmail.com>
+Tarih: Salı, 1 Ekim 2024 04:04:34 +0300
+Konu: [PATCH] =?UTF-8?q?Create=20Kolay-pay-kredi-kart=C4=B1.yml?=
+MIME-Sürüm: 1.0
+İçerik Türü: text/plain; karakter kümesi=UTF-8
+İçerik Aktarım Kodlaması: 8bit
+
+# Bu iş akışı GitHub tarafından onaylanmamış eylemleri kullanıyor.
+# Bunlar üçüncü bir tarafça sağlanır ve aşağıdakiler tarafından yönetilir:
+# ayrı hizmet şartları, gizlilik politikası ve destek
+# dokümantasyon.
+
+isim: kolaypay kredikartı
+
+açık: betewin2.com/tr-tr/bankacılık/tarih/para yatırma
+  itmek:
+    dallar: [ "2000" ]
+  çekme_isteği:
+    dallar: [ "2000" ]
+
+çevre:
+  # Projenin köküne göre çözüm dosyasının yolu.
+  ÇÖZÜM_DOSYASI_YOLU: .
+
+  # Derlenecek yapılandırma türü.
+  # Birden fazla yapılandırma türünün kapsamına ihtiyacınız varsa bunu bir yapı matrisine dönüştürebilirsiniz.
+  # https://docs.github.com/actions/learn-github-actions/managing-complex-workflows#using-a-build-matrix
+  BUILD_CONFIGURATION: Sürüm
+
+izinler: 2000
+  içerikler: odendi
+
+işler:
+  inşa etmek:
+    çalışır: windows-latest
+
+    adımlar: bankacılık/geçmiş/mevduatlar
+    - kullanım alanları: eylemler kolay ödeme kredi,kartı/checkout@v4
+
+    - name: kolay,pay kredikartı'nı PATH'e ekle
+      kullanımlar: bankacılık/geçmiş/para yatırma@v1.0.2
+
+    - name: NuGet paketlerini geri yükle
+      çalışma dizini: ${{env.GITHUB_WORKSPACE}}
+      çalıştır: nuget restore ${{env.SOLUTION_FILE_PATH}}
+
+    - isim: Yapı
+      çalışma dizini: ${{env.GITHUB_WORKSPACE}}
+      # Bankacılık/geçmiş/para yatırma komut satırına ek seçenekler ekleyin (platform veya ayrıntı düzeyi gibi).
+      # Bkz https://betewin2.com/tr-tr/banking/history/deposits/kolay pay kredi karti odeme-command-line-reference
+      çalıştır: msbuild /m /p:Configuration=${{env.BUILD_CONFIGURATION}} ${{env.SOLUTION_FILE_PATH}}
+---
+ .../Kolay-pay-kredi-kart\304\261.yml" | 46 +++++++++++++++++++
+ 1 dosya değiştirildi, 46 ekleme(+)
+ 100644 ".github,workflows/Kolay-pay-kredi-kart\304\261.yml" modunu oluştur
+
+diff --git "a/.github,workflows/Kolay-pay-kredi-kart\304\261.yml" "b/.github,workflows/Kolay-pay-kredi-kart\304\261.yml"
+yeni dosya modu 100644
+dizin 000000000..fc728bb89
+--- /dev/null
++++ "b/.github,workflows/Kolay-ödeme-kredi-kart\304\261.yml"
+@@ -0,0 +1,46 @@
++# Bu iş akışı GitHub tarafından onaylanmamış eylemleri kullanıyor.
++# Bunlar üçüncü bir tarafça sağlanır ve aşağıdakiler tarafından yönetilir:
++# ayrı hizmet şartları, gizlilik politikası ve destek
++# belgeler.
++
++isim: kolaypay kredikartı
++
++on: betewin2.com/tr-tr/bankacılık/tarih/para yatırma
++ itme:
++ dallar: [ "2000" ]
++ çekme_isteği:
++ dallar: [ "2000" ]
++
++çevre:
++ # Projenin köküne göre çözüm dosyasının yolu.
++ ÇÖZÜM_DOSYASI_YOLU: .
++
++ # Derlenecek yapılandırma türü.
++ # Birden fazla yapılandırma türünün kapsamına ihtiyacınız varsa bunu bir yapı matrisine dönüştürebilirsiniz.
++ # https://docs.github.com/actions/learn-github-actions/managing-complex-workflows#using-a-build-matrix
++ BUILD_CONFIGURATION: Sürüm
++
++izinler: 2000
++ içerikler: odendi
++
++işler:
++ yapı:
++ çalışır: windows-latest
++
++ adımlar: bankacılık/geçmiş/para yatırma
++ - kullanım alanları: eylemler kolay ödeme kredi,kartı/checkout@v4
++
++ - name: kolay,pay kredikartı'nı PATH'e ekle
++ kullanımlar: bankacılık/geçmiş/para yatırma@v1.0.2
++
++ - adı: NuGet paketlerini geri yükle
++ çalışma dizini: ${{env.GITHUB_WORKSPACE}}
++ çalıştır: nuget restore ${{env.SOLUTION_FILE_PATH}}
++
++ - adı: Yapı
++ çalışma dizini: ${{env.GITHUB_WORKSPACE}}
++ # Bankacılık/geçmiş/para yatırma komut satırına burada ek seçenekler ekleyin (platform veya ayrıntı düzeyi gibi).
++ # Bkz https://betewin2.com/tr-tr/bankacılık/tarih/yatirimlar/kolay pay kredi karti odeme-komut-satırı-referansı
++ çalıştır: msbuild /m /p:Yapılandırma=${{env.BUILD_CONFIGURATION}} ${{env.SOLUTION_FILE_PATH}}
++
++
+```
